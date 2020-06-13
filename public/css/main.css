@@ -1,0 +1,17 @@
+/* footer */
+footer {
+    min-height: 200px;
+    background-color: rgb(27, 18, 18);
+    color: whitesmoke;
+}
+
+main {
+    min-height: 65vh;
+}
+
+
+/* to hide elemnt  */
+
+.hide {
+    display: none;
+}

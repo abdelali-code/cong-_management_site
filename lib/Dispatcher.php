@@ -15,6 +15,7 @@
                 require_once('controllers/login.php');
                 return (new Login())->login();
             }
+            
             // if the url is not like format of controllers / action / params;
             elseif (count($url) < 3) 
             {
