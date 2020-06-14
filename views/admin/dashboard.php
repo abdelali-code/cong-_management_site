@@ -1,18 +1,24 @@
+<?php 
+    if (!isset($_SESSION['type'])) {
+        header('Location:'.BASE_URL);
+    }else if ($_SESSION['type'] == 'EM') {
+        header('Location:'.BASE_URL.'/home');
+    }else if ($_SESSION['type'] == 'RH') {
+        header('Location:'.BASE_URL.'/rhumain');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
-<?php 
-    $randoms = rand(1, 100);
-?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/main.css?hfhfhfhhhhhhh">
+    <link rel="stylesheet" href="public/css/main.css">
     <script src="https://kit.fontawesome.com/8bfa5eb2d0.js" crossorigin="anonymous"></script>
-    <script src="public/js/async.js?dddddd" type="text/javascript"></script>
+    <script src="public/js/async.js?kkk" type="text/javascript"></script>
 
     <title>dashboard</title>
 </head>

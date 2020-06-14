@@ -22,6 +22,7 @@
                 if(isset($_POST['id'])) {
                     return $this->model->deleteUser($_POST);
                 }
+                
             }
 
             // for updating user

@@ -5,20 +5,21 @@
 
 
 function deleteUser(target) {
+    console.log(target);
     var xhr = new XMLHttpRequest();
     var result = '';
     var parentElems = target.parentNode.children;
     for (var elem of parentElems) {
-        if (elem.className === "usercin") {
+        if (elem.classList.contains("usercin")) {
             result = elem.children[0].value;
             break;
         }
     }
+
     // the the respoce is recieved do 
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
-                // alert(xhr.responseText);
                 // console.log(this.responseText);
                 target.parentNode.style.display = 'none';
             }

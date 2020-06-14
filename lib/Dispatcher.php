@@ -2,6 +2,7 @@
     class Dispatcher {
         public function __construct() 
         {
+            // extract url 
             if (isset($_GET['url'])) 
             {
                 $url = $_GET['url'];
