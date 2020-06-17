@@ -1,12 +1,26 @@
 /* footer */
 footer {
     min-height: 200px;
-    background-color: rgb(27, 18, 18);
+    background-color: rgb(36, 39, 41);
     color: whitesmoke;
+    position: relative;
+    bottom: 0;
 }
 
 main {
-    min-height: 65vh;
+    min-height: 70vh;
+}
+
+/* header */
+.navbar {
+    background-color: rgb(57, 57, 57) !important;
+}
+.navbar a {
+    color: white;
+}
+
+.navbar a:hover {
+    color: rgb(60, 164, 255);
 }
 
 
@@ -15,3 +29,48 @@ main {
 .hide {
     display: none;
 }
+
+.is-invalid {
+    font-size: 12px;
+    color: red;
+}
+
+.logout {
+    background-color: rgb(60, 164, 255);
+    padding: 0px;
+    border-radius: 8px;
+}
+
+.logout a {
+    color: rgb(224, 255, 255) !important;
+}
+
+
+/* employer home page */
+
+.home {
+    background-color: rgb(45, 45, 45);
+    color: white;
+}
+
+.card {
+    background-color: rgb(60, 60, 60);
+}
+
+.card .title {
+    background-color: rgb(60, 164, 255);
+}
+.card:hover {
+   
+    background-color: rgb(68, 68, 68);
+}
+
+.card a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+
+/* list de demande */
+
+

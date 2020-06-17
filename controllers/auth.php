@@ -1,24 +1,22 @@
 <?php 
-    class Login extends ControllerConfig {
+    class Auth extends ControllerConfig {
         public function __construct() {
             parent::__construct();
             $this->model = $this->loadModel("login");
         }
-
         // public function get() {
-            
         // }
         public function login() {
-             // if there already a session which mean user still log in 
+             // if there already a session which mean user still log in or want to reviset log in page
              if (isset($_SESSION['userid'])) {
                 if ($_SESSION['type'] == "EM") {
-                    header('Location:'.BASE_URL.'/home');
+                    header('Location:'.BASE_URL.'/home/');
                 }
                 elseif ($_SESSION['type'] == "AD") {
-                    header('Location:'.BASE_URL.'/admin');
+                    header('Location:'.BASE_URL.'/admin/');
                 }
                 elseif ($_SESSION['type'] == "RH") {
-                    header('Location:'.BASE_URL.'/rhumain');
+                    header('Location:'.BASE_URL.'/rhumain/');
                 }
             }
             // user not log in yet 

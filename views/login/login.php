@@ -22,7 +22,7 @@
                 echo "<div class='alert text-danger text-center'> mot de passe or email is not correct</div>";
                 }
             ?>
-            <div class="card card_form" style="max-width: 24rem; margin: 48px auto">
+            <div class="card card_form text-white" style="max-width: 24rem; margin: 48px auto">
 
                 <div class="card-header text-center form_header">
                     Connect to your account

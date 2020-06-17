@@ -16,9 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="public/css/main.css?dddd">
     <script src="https://kit.fontawesome.com/8bfa5eb2d0.js" crossorigin="anonymous"></script>
-    <script src="public/js/async.js?kkk" type="text/javascript"></script>
+    <script src="public/js/async.js?k" type="text/javascript"></script>
 
     <title>dashboard</title>
 </head>
@@ -35,6 +35,12 @@
             <main class="container">
                 <!-- add user form -->
                 <div class="addUser mt-5">
+                    <?php 
+                        // if there is an error au niveau of validating data on backend display it here 
+                        if (isset($this->errMess)) {
+                            echo "<div class='text-danger'>there is an error </div>";
+                        }
+                    ?>
                     <button class="btn btn-primary" onclick="showHideForm()"><i class="fas fa-plus"></i></button>
 
                     <form class="my-5 hide" name="addUserForm" id="addUserForm">
@@ -43,11 +49,17 @@
                                 <label for="addfirstname">FirstName</label>
                                 <input type="text" class="form-control" id="addfirstname" name="addfirstname"
                                     placeholder="first name" />
+                                <div class="is-invalid">
+
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="addlastname">Password</label>
+                                <label for="addlastname">lastName</label>
                                 <input type="text" class="form-control" id="addlastname" name="addlastname"
                                     placeholder="last name" />
+                                <div class="is-invalid">
+
+                                </div>
                             </div>
                         </div>
 
@@ -56,11 +68,17 @@
                                 <label for="addtelnum">Tel number</label>
                                 <input type="text" class="form-control" id="addtelnum" name="addtelnum"
                                     placeholder="tél number" />
+                                <div class="is-invalid">
+
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="addcin">CIN</label>
                                 <input type="text" class="form-control" id="addcin"
                                     placeholder="carte d'identité number" name="addcin" />
+                                <div class="is-invalid">
+
+                                </div>
                             </div>
                         </div>
 
@@ -68,17 +86,26 @@
                             <label for="addemail">Email</label>
                             <input type="email" class="form-control" id="addemail" placeholder="email"
                                 name="addemail" />
+                            <div class="is-invalid">
+
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="addservice">Service</label>
                                 <input type="text" class="form-control" id="addsevice" placeholder="service"
                                     name="addsevice" />
+                                <div class="is-invalid">
+
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="addgrade">Grade</label>
                                 <input type="text" class="form-control" id="addgrade" placeholder="grade"
                                     name="addgrade" />
+                                <div class="is-invalid">
+
+                                </div>
                             </div>
                         </div>
 
@@ -165,18 +192,6 @@
             </div>
         </div> -->
 
-        <!-- -->
-
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-        </script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-        </script>
         <script src="public/js/main.js?dddddddfff" type="text/javascript"></script>
 
     </body>

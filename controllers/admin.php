@@ -16,15 +16,12 @@
                     return $this->model->registerUser($_POST);
                 }
             }
-
             // for deleting a user
             public function delete() {
                 if(isset($_POST['id'])) {
                     return $this->model->deleteUser($_POST);
                 }
-                
             }
-
             // for updating user
             public function update() {
                 return $this->model->updateUser($_POST);

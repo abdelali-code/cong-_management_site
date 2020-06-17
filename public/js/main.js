@@ -15,3 +15,6 @@ searchBar.addEventListener('input', function search(e) {
         }
     }
 })
+
+
+

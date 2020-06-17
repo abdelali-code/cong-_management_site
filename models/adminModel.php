@@ -19,7 +19,7 @@
                 if (!empty($data['addfirstname']) && ($nameLength < 60 && $nameLength >= 3) && (ctype_alpha($data['addfirstname']))) {
                     $name = $data['addfirstname'];
                 } else {
-                    $errMess['firstname'] = "name Must be all character and between 2 and 60";
+                    $errMess['firstnameErr'] = "name Must be all character and between 2 and 60";
                 }
 
                 /*********************** prénom validation ************************/
@@ -27,7 +27,7 @@
                 if (!empty($data['addlastname']) && ($lastNameLength < 60 && $lastNameLength >= 3) && (ctype_alpha($data['addlastname']))) {
                     $prenom = $data['addlastname'];
                 } else {
-                    $errMess['lastname'] = "Prénom Must be all character and between 2 and 60";
+                    $errMess['lastnameErr'] = "Prénom Must be all character and between 2 and 60";
                 }
                 
                 // email validation
@@ -35,7 +35,7 @@
                     //Valid email!
                     $email = $data['addemail'];
             } else {
-                $errMess['email'] = "Email is not correct";
+                $errMess['emailErr'] = "Email is not correct";
             }
 
                 //    telephone validation
@@ -45,28 +45,28 @@
                 if (ctype_digit($tel) && ($telLength >= 9 && $telLength<= 10)) {
                     $tel = $tel;
                 } else {
-                    $errMess['telnum'] = "tel number should contient only number";
+                    $errMess['telnumErr'] = "tel number should contient only number";
                 }
 
                 // CIN validation 
                 if (!empty($data['addcin']) && ctype_alnum($data['addcin']) && (strlen($data['addcin']) <= 12) ) {
                     $cin = $data['addcin'];
                 } else {
-                    $errMess['cin'] = "Not Valid CIN";
+                    $errMess['cinErr'] = "Not Valid CIN";
                 }
 
                 // grade validation 
                 if (!empty($data['addgrade']) && ctype_alnum($data['addgrade']) && (strlen($data['addgrade']) < 20) ) {
                     $grade = $data['addgrade'];
                 } else {
-                    $errMess['grade'] = "should all be all caracter and less than 20 character";
+                    $errMess['gradeErr'] = "should all be all caracter and less than 20 character";
                 }
 
                 // service validation 
                 if (!empty($data['addsevice']) && ctype_alnum($data['addgrade']) && (strlen($data['addgrade']) < 20)) {
                     $service = $data['addsevice'];
                 } else {
-                    $errMess['service'] = "should all be all caracter and less than 20 charactery";
+                    $errMess['serviceErr'] = "should all be all caracter and less than 20 charactery";
                 }
 
                 // dont forget password;
@@ -101,7 +101,7 @@
                         $prepa->execute(array (":cin" => $cin));
                         $row = $prepa->fetch(PDO::FETCH_ASSOC);
                         if ($row) {
-                            header("Content-type:application/json"); 
+                            header("Content-type:application/json");
                             echo json_encode($row);
                         }
                     }else {
@@ -110,6 +110,8 @@
                 } else {
                     // it'q mean this is error;
                     // send those error to view to handle it;
+                    header("Content-type:application/json"); 
+                    echo json_encode($errMess);
                 } 
             } 
             else {
@@ -137,6 +139,8 @@
                 echo "you are not allowed";
             }
         }
+
+        // delete users
         public function deleteUser($data) {
             if (!isset($_SESSION['type'])) {
                 header('Location'.BASE_URL);

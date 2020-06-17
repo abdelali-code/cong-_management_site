@@ -5,7 +5,6 @@
 
 
 function deleteUser(target) {
-    console.log(target);
     var xhr = new XMLHttpRequest();
     var result = '';
     var parentElems = target.parentNode.children;
@@ -24,10 +23,6 @@ function deleteUser(target) {
                 target.parentNode.style.display = 'none';
             }
         }
-        // we need to handle if any error is occur
-        // else {
-        //     spinner.style.display = "block";
-        // }
     }
 
     // open the connection with the server
@@ -50,11 +45,18 @@ function addUsers(evt) {
     var xhr = new XMLHttpRequest();
     var form = document.forms['addUserForm']
     var targetForm = new FormData(form);
+
+
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
+                // alert(xhr.responseText);
                 var responce = JSON.parse(xhr.responseText);
-                tableData.appendChild(addRow(responce));
+                validateAddingUsser(responce);
+                if (!responce.firstnameErr || !responce.lastnameErr || !responce.emailErr
+                    || !responce.telnumErr || !responce.cinErr || !responce.gradeErr || !responce.serviceErr) {
+                    tableData.appendChild(addRow(responce));
+                }
             }
         }
     }
@@ -64,7 +66,7 @@ function addUsers(evt) {
     form.reset();
 
     // then hide form 
-    showHideForm();
+    // showHideForm();
     evt.preventDefault();
 
 }
@@ -192,5 +194,44 @@ function addRow(respoce) {
 
 
 
-// filter data in table
+// display validaions errors of adding users
+function validateAddingUsser(errMess) {
+    var targetElems = document.querySelectorAll('#addUserForm .is-invalid');
+    if (errMess.firstnameErr) {
+        targetElems[0].textContent = errMess.firstnameErr;
+    } else {
+        targetElems[0].textContent = "";
+    }
+    if (errMess.lastnameErr) {
+        targetElems[1].textContent = errMess.lastnameErr;
+    } else {
+        targetElems[1].textContent = "";
+    }
+    if (errMess.telnumErr) {
+        targetElems[2].textContent = errMess.telnumErr;
+    } else {
+        targetElems[2].textContent = "";
+    }
+    if (errMess.cinErr) {
+        targetElems[3].textContent = errMess.cinErr;
+    } else {
+        targetElems[3].textContent = "";
+    }
+    if (errMess.emailErr) {
+        targetElems[4].textContent = errMess.emailErr;
+    } else {
+        targetElems[4].textContent = "";
+    }
+    if (errMess.serviceErr) {
+        targetElems[5].textContent = errMess.serviceErr;
+    } else {
+        targetElems[5].textContent = "";
+    }
+    if (errMess.gradeErr) {
+        targetElems[6].textContent = errMess.gradeErr;
+    } else {
+        targetElems[6].textContent = "";
+    }
+
+}
 

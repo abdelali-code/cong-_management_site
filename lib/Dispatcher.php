@@ -13,8 +13,8 @@
             if (empty($url))
              {
                 // require the log in controllers;
-                require_once('controllers/login.php');
-                return (new Login())->login();
+                require_once('controllers/auth.php');
+                return (new Auth())->login();
             }
             
             // if the url is not like format of controllers / action / params;
