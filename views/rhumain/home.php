@@ -1,11 +1,11 @@
 <?php 
-    if (!isset($_SESSION['type'])) {
-        header('Location:'.BASE_URL);
-    }elseif ($_SESSION['type'] == 'AD') {
-        header('Location:'.BASE_URL.'/admin');
-    }elseif ($_SESSION['type'] == 'EM') {
-        header('Location:'.BASE_URL.'/home');
-    }
+    // if (!isset($_SESSION['type'])) {
+    //     header('Location:'.BASE_URL);
+    // }elseif ($_SESSION['type'] == 'AD') {
+    //     header('Location:'.BASE_URL.'/admin');
+    // }elseif ($_SESSION['type'] == 'EM') {
+    //     header('Location:'.BASE_URL.'/home');
+    // }
 ?>
 
 <!DOCTYPE html>

@@ -1,13 +1,3 @@
-<?php 
-    if (!isset($_SESSION['type'])) {
-        header('Location:'.BASE_URL);
-    }else if ($_SESSION['type'] == 'EM') {
-        header('Location:'.BASE_URL.'/home');
-    }else if ($_SESSION['type'] == 'RH') {
-        header('Location:'.BASE_URL.'/rhumain');
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/main.css?dddd">
+    <link rel="stylesheet" href="public/css/main.css">
     <script src="https://kit.fontawesome.com/8bfa5eb2d0.js" crossorigin="anonymous"></script>
-    <script src="public/js/async.js?k" type="text/javascript"></script>
+    <script src="public/js/async.js" type="text/javascript"></script>
 
     <title>dashboard</title>
 </head>
@@ -118,8 +108,8 @@
                 <!-- the searsh form in the table **************************************    -->
                 <div class="container d-flex justify-content-end">
                     <div class="col-md-6 row">
-                        <label class="col-sm-2">search:</label>
-                        <input class="form-control col-sm-10" type="text" placeholder="CIN" id="searchintable" />
+                        <!-- <label class="col-sm-2">search:</label> -->
+                        <input class="form-control col-sm-12" type="text" placeholder="CIN" id="searchintable" />
                     </div>
                 </div>
                 <!-- the searsh form in the table *****************************************   -->

@@ -35,7 +35,7 @@
             }
             else {
                 $message = "error";
-                header("Location: ".BASE_URL."?message=".urldecode($message));
+                header("Location: ".BASE_URL."/auth?message=".urldecode($message));
 
             }
         }

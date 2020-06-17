@@ -1,15 +1,15 @@
 <?php 
     class AdminModel extends Database {
         public function __construct() {
-            Session::init();
+            // Session::init();
             parent :: __construct();
         }
         public function registerUser($data) 
         {
-        if (!isset($_SESSION['type'])) {
-            header('Location'.BASE_URL);
-        }
-        if (isset($_SESSION['type']) && $_SESSION['type'] == "AD") {
+        // if (!isset($_SESSION['type'])) {
+        //     header('Location'.BASE_URL);
+        // }
+        // if (isset($_SESSION['type']) && $_SESSION['type'] == "AD") {
 
                 $errMess = [];
                 // validate the data
@@ -113,19 +113,19 @@
                     header("Content-type:application/json"); 
                     echo json_encode($errMess);
                 } 
-            } 
-            else {
-                echo "You are not allowed";
-                // user not allowed
-            }   
+            // } 
+            // else {
+            //     echo "You are not allowed";
+            //     // user not allowed
+            // }   
         }
 
         // to select users from database 
         public function loadUser() {
-            if (!isset($_SESSION['type'])) {
-                header('Location'.BASE_URL);
-            }
-            if (isset($_SESSION['type']) && $_SESSION['type'] == "AD") {
+            // if (!isset($_SESSION['type'])) {
+            //     header('Location'.BASE_URL);
+            // }
+            // if (isset($_SESSION['type']) && $_SESSION['type'] == "AD") {
                 $query = "SELECT * from users WHERE type = 'EM' ";
                 $stm = $this->db->prepare($query);
                 $stm->execute();
@@ -135,17 +135,17 @@
                 if ($rows) {
                     return $rows;
                 }
-            } else {
-                echo "you are not allowed";
-            }
+            // } else {
+            //     echo "you are not allowed";
+            // }
         }
 
         // delete users
         public function deleteUser($data) {
-            if (!isset($_SESSION['type'])) {
-                header('Location'.BASE_URL);
-            }
-            if (isset($_SESSION['type']) && $_SESSION['type'] == "AD") {
+            // if (!isset($_SESSION['type'])) {
+            //     header('Location'.BASE_URL);
+            // }
+            // if (isset($_SESSION['type']) && $_SESSION['type'] == "AD") {
                 $query = "DELETE FROM users WHERE CIN = :id";
                 $stm = $this->db->prepare($query);
                 $stm->execute( array(":id" =>$data['id']));
@@ -154,15 +154,15 @@
                 if ($stm) {
                     return $stm;
                 }
-            } else {
-                echo "you are not allowed";
-            }
+            // } else {
+            //     echo "you are not allowed";
+            // }
         }
         public function updateUser($data) {
-            if (!isset($_SESSION['type'])) {
-                header('Location'.BASE_URL);
-            }
-            if (isset($_SESSION['type']) && $_SESSION['type'] == "AD") {
+            // if (!isset($_SESSION['type'])) {
+            //     header('Location'.BASE_URL);
+            // }
+            // if (isset($_SESSION['type']) && $_SESSION['type'] == "AD") {
                 $query = "UPDATE users set firstName=:firstname, lastName=:lastname, email=:email, service=:service, grade=:grade WHERE CIN=:id and type = 'EM'";
                 $stm = $this->db->prepare($query);
                 $stm->execute(array(":firstname" =>$data['upfirstname'], ":lastname" =>$data['uplastname'], ":email" =>$data['upemail'], ":service" =>$data['upservice'], "grade" =>$data['upgrade'],":id" =>$data['id'] ));
@@ -178,9 +178,9 @@
                         echo json_encode($row);
                     }
                 }
-            } else {
-                echo "you are not allowed";
-            }
+            // } else {
+            //     echo "you are not allowed";
+            // }
         }
     }
 

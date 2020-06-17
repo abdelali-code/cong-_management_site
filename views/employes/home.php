@@ -1,13 +1,3 @@
-<?php 
-    if (!isset($_SESSION['type'])) {
-        header('Location:'.BASE_URL);
-    }elseif ($_SESSION['type'] == 'AD') {
-        header('Location:'.BASE_URL.'/admin');
-    }elseif ($_SESSION['type'] == 'RH') {
-        header('Location:'.BASE_URL.'/rhumain');
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +27,7 @@
                     </div>
                     <div class="col-md-6 mt-5">
                         <div class="card" style="max-width: 24rem">
-                            <a href=<?php echo BASE_URL."/home/impremer";?>>
+                            <a href=<?php echo BASE_URL."/home/imprimer";?>>
                                 <h5 class="card-header text-center title">Imprimer Document</h5>
                                 <div class="card-body">
                                     <p class="card-text">vous pouvez imprimer tous fichies ....</p>

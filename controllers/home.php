@@ -2,7 +2,7 @@
     class Home extends ControllerConfig {
         public function __construct() {
             parent::__construct();
-            Session::init();
+            // Session::init();
             $this->model = $this->loadModel("employer");
         }
         public function get() {

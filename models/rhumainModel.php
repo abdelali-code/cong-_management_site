@@ -1,7 +1,7 @@
 <?php 
     class RhumainModel extends Database {
         public function __construct() {
-            Session::init();
+            // Session::init();
             parent :: __construct();
         }
         public function loadDemande() {

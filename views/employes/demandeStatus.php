@@ -1,13 +1,3 @@
-<?php 
-    if (!isset($_SESSION['type'])) {
-        header('Location:'.BASE_URL);
-    }elseif ($_SESSION['type'] == 'AD') {
-        header('Location:'.BASE_URL.'/admin');
-    }elseif ($_SESSION['type'] == 'RH') {
-        header('Location:'.BASE_URL.'/rhumain');
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
