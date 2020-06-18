@@ -59,7 +59,7 @@
 
             // anpther try
             // for employer page
-            elseif (count($url) <= 2) {
+            elseif (count($url) <= 3) {
                 // for authenticationcontrollers
                 if ($url[0] == "auth") {
                     require("controllers/auth.php");
@@ -71,7 +71,7 @@
                         return $auth->{$url[1]}();
                     }
                     else {
-                        include_once('views/404.php'); 
+                        include_once('views/404.php');
                     }
                 }
                 // for home page
@@ -84,7 +84,13 @@
                             return $home->get();
                         }
                         else if(method_exists($home, $url[1])) {
-                            return $home->{$url[1]}();
+                            if (empty($url[2])) {
+                                return $home->{$url[1]}();
+                            }
+                            else {
+                                return $home->{$url[1]}($url[2]);
+                            }
+                            
                         }
                         else {
                             include_once('views/404.php'); 

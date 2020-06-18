@@ -4,7 +4,7 @@
         if($_SESSION['type'] == 'EM'){
             echo "
             <ul class='navbar-nav'>
-                <li class='nav-item'><a class='nav-link' href=".BASE_URL."/home/>Home</a></li>
+                <li class='nav-item'><a class='nav-link' href=".BASE_URL."/home>Home</a></li>
             </ul>
             ";
             

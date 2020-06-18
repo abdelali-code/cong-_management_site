@@ -44,19 +44,22 @@ function addUsers(evt) {
     var tableData = document.getElementById('tableData');
     var xhr = new XMLHttpRequest();
     var form = document.forms['addUserForm']
+    console.log(form);
     var targetForm = new FormData(form);
-
+    console.log(targetForm);
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                // alert(xhr.responseText);
+                // if there is an existing user
                 var responce = JSON.parse(xhr.responseText);
-                validateAddingUsser(responce);
-                if (!responce.firstnameErr || !responce.lastnameErr || !responce.emailErr
-                    || !responce.telnumErr || !responce.cinErr || !responce.gradeErr || !responce.serviceErr) {
+                if (!responce.firstnameErr && !responce.lastnameErr && !responce.emailErr
+                    && !responce.telnumErr && !responce.cinErr && !responce.gradeErr && !responce.serviceErr) {
                     tableData.appendChild(addRow(responce));
+                } else {
+                    validateAddingUsser(responce);
                 }
+
             }
         }
     }

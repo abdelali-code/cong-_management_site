@@ -2,6 +2,8 @@
     class employerModel extends Database {
         public function __construct() {
             parent :: __construct();
+            require_once("lib/fpdf/fpdf.php");
+            $this->pdf = new FPDF();
         }
         public function addConger($data) {
             // get the current date;
@@ -91,6 +93,24 @@
             $stm = $this->db->prepare("SELECT conge.*, demande.decision FROM demande, conge WHERE conge_numero = numero AND user_cin = '$employerId'");
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        // function to generate a pdf file
+        public function generatePdf($num) {
+            // if number == 1 generate a bulletien de paie;
+            if ($num == 1) {
+                $this->pdf->AddPage();
+                $this->pdf->SetFont('Arial','B',16);
+                $this->pdf->Cell(40,10,'Hello World!');
+                $this->pdf->Output();
+            }
+            // generate .......
+            elseif ($num == 2) {
+                $this->pdf->AddPage();
+                $this->pdf->SetFont('Arial','B',16);
+                $this->pdf->Cell(40,10,'Hello World!');
+                $this->pdf->Output();
+            }
         }
 
     }

@@ -21,8 +21,11 @@
         }
 
         // impremer les fichier 
-        public function impremer() {
-            $his->view->render("employes/imprimer");
+        public function imprimer($num=null) {
+            if(isset($num)) {
+                $this->model->generatePdf($num);
+            }
+            $this->view->render("employes/imprimer");
         }
     }
 ?>

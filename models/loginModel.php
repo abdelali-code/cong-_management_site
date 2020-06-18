@@ -17,18 +17,20 @@
             // if ($rows && password_verify($password, $rows['password']))  after hashing the password activate this
             // if ($rows && $password == $rows['password']){
             if ($rows && password_verify($password, $rows['password'])) {
-                // start a session
-                $_SESSION['type'] = $rows['type'];
-                $_SESSION['userid'] = $rows['CIN'];
-                $_SESSION['username'] = $rows['firstName'];
+                // set a session
+                Session::set('type', $rows['type']);
+                Session::set('userid', $rows['CIN']);
+                Session::set('username', $rows['firstName']);
+                
+                
                 // redirect user to apropriate page
-                if ($_SESSION['type'] == "EM") {
+                if (Session::get('type') == "EM") {
                     header('Location:'.BASE_URL.'/home');
                 }
-                elseif ($_SESSION['type'] == "AD") {
+                elseif (Session::get('type') == "AD") {
                     header('Location:'.BASE_URL.'/admin');
                 }
-                elseif ($_SESSION['type'] == "RH") {
+                elseif (Session::get('type')== "RH") {
                     header('Location:'.BASE_URL.'/rhumain');
                 }
                 
