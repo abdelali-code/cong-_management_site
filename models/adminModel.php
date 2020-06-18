@@ -34,7 +34,7 @@
                 $errMess['emailErr'] = "Email is not correct";
             }
 
-            //    telephone validation
+            //    telephone number validation
             $tel = str_replace(" ", "", $data['addtelnum']);
             $tel = str_replace("-", "", $tel);
             $telLength = strlen($tel);
@@ -82,12 +82,14 @@
             // if there is no error store this value in database
             // but first generate a random password
             if (empty($errMess)) {
+                // you should avoid this after because it take a lot of time to generate a random password;
+                // search after on a better solutions;
                 $password = md5(1000, 12000);
                 $password = password_hash($password, PASSWORD_BCRYPT);
                 $password = substr($password, 0, 20);
 
                 // file to store password to remove
-                // in developement should be removed
+                // it should be removed just for testing purpose
                 $passFile = fopen("newfile.csv", "a") or die("Unable to open file!");
                 $text = "cin $cin || password is :  $password \n";
                 fwrite($passFile, $text);

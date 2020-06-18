@@ -2,8 +2,7 @@
     class employerModel extends Database {
         public function __construct() {
             parent :: __construct();
-            require_once("lib/fpdf/fpdf.php");
-            $this->pdf = new FPDF();
+ 
         }
         public function addConger($data) {
             // get the current date;
@@ -97,18 +96,40 @@
 
         // function to generate a pdf file
         public function generatePdf($num) {
+            require_once("lib/fpdf/fpdf.php");
+            $this->pdf = new FPDF();
             // if number == 1 generate a bulletien de paie;
             if ($num == 1) {
                 $this->pdf->AddPage();
                 $this->pdf->SetFont('Arial','B',16);
-                $this->pdf->Cell(40,10,'Hello World!');
+                $this->pdf->Cell(70);
+                $this->pdf->SetTextColor(60, 164, 255);
+                $this->pdf->Cell(40,10,'Bulletien de paie');
+                $this->pdf->Ln(20);
+                $this->pdf->SetTextColor(0, 0, 0);
+                $this->pdf->SetFont('Arial','',14);
+                $this->pdf->Cell(40,10,'Name : '.Session::get('username'));
+                $this->pdf->Ln();
+                $this->pdf->Cell(40, 10,'porte la CIN num : '.Session::get("userid"));
+                $this->pdf->Ln(30);
+                $this->pdf->Cell(40, 10,'Nous sommes l\'entreprise yxz nos declare que le monsieur '.Session::get('username'));
                 $this->pdf->Output();
             }
             // generate .......
             elseif ($num == 2) {
                 $this->pdf->AddPage();
                 $this->pdf->SetFont('Arial','B',16);
-                $this->pdf->Cell(40,10,'Hello World!');
+                $this->pdf->Cell(70);
+                $this->pdf->SetTextColor(60, 164, 255);
+                $this->pdf->Cell(40,10,'certificat de .....');
+                $this->pdf->Ln(20);
+                $this->pdf->SetTextColor(0, 0, 0);
+                $this->pdf->SetFont('Arial','',14);
+                $this->pdf->Cell(40,10,'Name : '.Session::get('username'));
+                $this->pdf->Ln();
+                $this->pdf->Cell(40, 10,'porte la CIN num : '.Session::get("userid"));
+                $this->pdf->Ln(30);
+                $this->pdf->Cell(40, 10,'Nous sommes l\'entreprise yxz nos declare que le monsieur '.Session::get('username'));
                 $this->pdf->Output();
             }
         }
