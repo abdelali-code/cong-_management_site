@@ -68,7 +68,13 @@
                         return $auth->login();
                     }
                     else if(method_exists($auth, $url[1])) {
-                        return $auth->{$url[1]}();
+                        if (empty($url[2])) {
+                            return $auth->{$url[1]}();
+                        }
+                        else {
+                            include_once('views/404.php');
+                        }
+                        
                     }
                     else {
                         include_once('views/404.php');
@@ -110,8 +116,13 @@
                         if (empty($url[1])) {
                             return $admin->get();
                         }
-                        else if(method_exists($admin, $url[1])) {
-                            return $admin->{$url[1]}();
+                        else if(method_exists($admin, $url[1])) { 
+                            if (empty($url[2])) {
+                                return $admin->{$url[1]}();
+                            }
+                            else {
+                                include_once('views/404.php');
+                            }
                         }
                         else {
                             include_once('views/404.php'); 
@@ -133,7 +144,12 @@
                             return $rhumain->get();
                         }
                         else if(method_exists($rhumain, $url[1])) {
-                            return $rhumain->{$url[1]}();
+                            if (empty($url[2])) {
+                                return $rhumain->{$url[1]}();
+                            }
+                            else {
+                                include_once('views/404.php');
+                            } 
                         }
                         else {
                             include_once('views/404.php'); 
